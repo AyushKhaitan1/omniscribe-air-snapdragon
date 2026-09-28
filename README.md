@@ -79,7 +79,7 @@ Running continuous multi-billion parameter speech and reasoning models locally o
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/ayushkhaitan/omniscribe-air-snapdragon.git
+git clone https://github.com/AyushKhaitan1/omniscribe-air-snapdragon.git
 cd omniscribe-air-snapdragon
 pip install -r requirements.txt
 ```

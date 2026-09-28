@@ -97,7 +97,7 @@ def generate_pdf():
     <b>Target Platform:</b> HP OmniBook Ultra / HP OmniBook X (Qualcomm® Snapdragon® X Elite / X Plus)<br/>
     <b>Hardware Acceleration:</b> Qualcomm® Hexagon™ NPU (45 TOPS, INT4/INT8 Tensor Cores)<br/>
     <b>Qualcomm AI Hub Models:</b> Whisper-Base-En (QNN INT8) & Llama-3.2-1B-Instruct (QNN INT4)<br/>
-    <b>GitHub Repository:</b> https://github.com/ayushkhaitan/omniscribe-air-snapdragon
+    <b>GitHub Repository:</b> https://github.com/AyushKhaitan1/omniscribe-air-snapdragon
     """
     story.append(Paragraph(meta_text, meta_style))
     story.append(Spacer(1, 10))

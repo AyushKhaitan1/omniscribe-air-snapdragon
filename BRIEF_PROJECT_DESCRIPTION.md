@@ -5,7 +5,7 @@
 **Target Hardware:** HP OmniBook Ultra / HP OmniBook X (Qualcomm® Snapdragon® X Elite / X Plus Platform)  
 **Core Acceleration:** Qualcomm® Hexagon™ NPU (45 TOPS, INT4/INT8 Tensor Core Acceleration)  
 **Qualcomm AI Hub Models:** `whisper-base-en` (Acoustic QNN) & `llama-v3_2-1b-instruct` / `qwen2.5-1.5b` (QNN INT4)  
-**Repository:** https://github.com/ayushkhaitan/omniscribe-air-snapdragon  
+**Repository:** https://github.com/AyushKhaitan1/omniscribe-air-snapdragon  
 
 ---
 

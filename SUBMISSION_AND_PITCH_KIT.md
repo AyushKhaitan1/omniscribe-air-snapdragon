@@ -15,9 +15,9 @@ OmniScribe Air: Air-Gapped Ambient Clinical & Legal Intelligence Engine for Snap
 
 ### GitHub Repository Link * (Max 500 characters)
 ```text
-https://github.com/ayushkhaitan/omniscribe-air-snapdragon
+https://github.com/AyushKhaitan1/omniscribe-air-snapdragon
 ```
-*(Run `git remote add origin https://github.com/ayushkhaitan/omniscribe-air-snapdragon.git` and `git push -u origin main` on your GitHub account)*
+*(Run `git remote add origin https://github.com/AyushKhaitan1/omniscribe-air-snapdragon.git` and `git push -u origin main` on your GitHub account)*
 
 ### Short Pitch Presentation in PDF * (Upload PDF)
 * **File to Upload:** `OmniScribe_Air_Pitch_Presentation.pdf` *(Generated in project directory)*
