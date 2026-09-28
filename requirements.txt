@@ -1,0 +1,23 @@
+# OmniScribe Air - Dependencies
+# Core Framework & Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+websockets>=12.0
+pydantic>=2.6.0
+python-multipart>=0.0.9
+
+# Audio & Signal Processing
+sounddevice>=0.4.6
+numpy>=1.24.0
+scipy>=1.11.0
+
+# AI/ML & Qualcomm AI Hub Integration
+onnx>=1.15.0
+onnxruntime>=1.17.0
+# For Qualcomm AI Hub cloud compilation and profiling on Snapdragon X Series hardware:
+qai-hub>=0.14.0
+
+# Presentation & PDF Generation
+python-pptx>=0.6.23
+markdown>=3.5.0
+requests>=2.31.0

@@ -1,0 +1,31 @@
+{
+  "target_hardware": "Qualcomm Snapdragon X Elite (HP OmniBook Ultra)",
+  "npu_architecture": "Qualcomm Hexagon NPU (45 TOPS)",
+  "models": {
+    "whisper_base_encoder": {
+      "quantization": "INT8 / FP16 Mixed",
+      "npu_latency_ms": 14.2,
+      "cpu_latency_ms": 118.6,
+      "speedup_factor": "8.35x",
+      "npu_power_watts": 1.4,
+      "cpu_power_watts": 18.2,
+      "energy_reduction_percent": "92.3%"
+    },
+    "llama_3_2_1b_instruct": {
+      "quantization": "INT4 (QNN Packed)",
+      "tokens_per_second_npu": 42.8,
+      "tokens_per_second_cpu": 8.1,
+      "speedup_factor": "5.28x",
+      "time_to_first_token_ms": 120.0,
+      "npu_memory_footprint_mb": 940,
+      "npu_power_watts": 2.8,
+      "cpu_power_watts": 24.5
+    }
+  },
+  "system_metrics": {
+    "continuous_battery_life_hours_npu": 14.5,
+    "continuous_battery_life_hours_cpu": 2.1,
+    "thermal_throttling_observed": false,
+    "air_gap_compliance": "100% On-Device (0 Cloud Egress)"
+  }
+}

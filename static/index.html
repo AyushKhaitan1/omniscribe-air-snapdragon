@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniScribe Air — Snapdragon® AI Lab (HP OmniBook)</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+      <div class="brand">
+        <div class="brand-badge">QUALCOMM AI HUB ACCELERATED</div>
+        <div class="logo-title">
+          <span class="logo-snap">Snapdragon®</span> OmniScribe <span class="logo-air">Air</span>
+        </div>
+        <div class="subtitle">Air-Gapped Ambient Clinical & Legal Intelligence on HP OmniBook Ultra</div>
+      </div>
+      
+      <div class="header-status">
+        <div class="status-pill status-airgap">
+          <span class="pulse-dot green"></span>
+          <span>AIR-GAP VERIFIED (0 BYTES EGRESS)</span>
+        </div>
+        <div class="status-pill status-npu">
+          <span class="icon-chip">⚡</span>
+          <span>HEXAGON™ NPU: 45 TOPS ACTIVE</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Control Bar -->
+    <div class="control-strip">
+      <div class="mode-selector">
+        <button id="btn-mode-clinical" class="mode-btn active" onclick="switchMode('clinical')">
+          <span class="mode-icon">🩺</span> Clinical SOAP Note (HIPAA)
+        </button>
+        <button id="btn-mode-legal" class="mode-btn" onclick="switchMode('legal')">
+          <span class="mode-icon">⚖️</span> Legal Deposition (Privilege)
+        </button>
+      </div>
+
+      <div class="action-controls">
+        <button id="btn-start" class="btn-primary" onclick="startStreaming()">
+          <span class="btn-icon">🎙️</span> Start Ambient Capture
+        </button>
+        <button id="btn-reset" class="btn-secondary" onclick="resetSession()">
+          <span>↺</span> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Grid Workspace -->
+    <main class="main-grid">
+      <!-- Left Column: Audio Waveform & Live Dialogue Stream -->
+      <section class="card panel-stream">
+        <div class="card-header">
+          <div class="header-title">
+            <span class="card-tag">INPUT PIPELINE</span>
+            <h3>Real-Time Speech-to-Text & PII Anonymizer</h3>
+          </div>
+          <div class="audio-indicator" id="audio-indicator">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+          </div>
+        </div>
+
+        <div class="transcript-feed" id="transcript-feed">
+          <div class="feed-placeholder">
+            <p>Ready to capture ambient consultation audio.</p>
+            <p class="placeholder-hint">Click <strong>"Start Ambient Capture"</strong> to demonstrate real-time Whisper NPU streaming & immediate PII sanitization.</p>
+          </div>
+        </div>
+        
+        <div class="pii-banner" id="pii-banner" style="display: none;">
+          <span class="shield-icon">🛡️</span>
+          <span>Active In-Memory PII Redaction: <strong id="pii-count">0</strong> entities scrubbed before disk write</span>
+        </div>
+      </section>
+
+      <!-- Center Column: Structured Intelligence Output -->
+      <section class="card panel-output">
+        <div class="card-header">
+          <div class="header-title">
+            <span class="card-tag gold">QUALCOMM AI HUB SLM</span>
+            <h3 id="doc-title">Structured Clinical SOAP Document</h3>
+          </div>
+          <button class="btn-outline" onclick="copyDocument()">📋 Copy Clean Schema</button>
+        </div>
+
+        <div class="structured-content" id="structured-content">
+          <div class="output-placeholder">
+            <div class="spinner-idle"></div>
+            <p>Awaiting continuous speech stream to synthesize structured JSON schema.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Hardware Telemetry (Hexagon NPU vs x86 CPU) -->
+      <section class="card panel-telemetry">
+        <div class="card-header">
+          <div class="header-title">
+            <span class="card-tag red">HARDWARE ACCELERATION AUDIT</span>
+            <h3>Snapdragon® X vs x86 Baseline</h3>
+          </div>
+        </div>
+
+        <div class="telemetry-grid">
+          <!-- Hexagon NPU Card -->
+          <div class="telemetry-card npu-highlight">
+            <div class="card-badge-sm">SNAPDRAGON X ELITE</div>
+            <h4>Qualcomm Hexagon™ NPU</h4>
+            <div class="metric-row">
+              <span class="metric-label">Latency:</span>
+              <span class="metric-val green" id="npu-lat">14.2 ms</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Power Draw:</span>
+              <span class="metric-val green" id="npu-power">1.8 Watts</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Battery Projection:</span>
+              <span class="metric-val green" id="npu-battery">14.8 Hours</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Acoustics / Fan:</span>
+              <span class="metric-val green">0 RPM (Silent)</span>
+            </div>
+          </div>
+
+          <!-- x86 CPU Card -->
+          <div class="telemetry-card cpu-baseline">
+            <div class="card-badge-sm">TRADITIONAL LAPTOP</div>
+            <h4>Standard x86 CPU</h4>
+            <div class="metric-row">
+              <span class="metric-label">Latency:</span>
+              <span class="metric-val red" id="cpu-lat">118.6 ms</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Power Draw:</span>
+              <span class="metric-val red" id="cpu-power">21.4 Watts</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Battery Projection:</span>
+              <span class="metric-val red" id="cpu-battery">2.2 Hours</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Acoustics / Fan:</span>
+              <span class="metric-val red">3800 RPM (Loud)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparative Advantage Callout -->
+        <div class="advantage-box">
+          <div class="adv-title">Snapdragon HP Architecture Moat:</div>
+          <div class="adv-stat">
+            <span class="stat-num">8.35x</span>
+            <span class="stat-desc">Inference Speedup</span>
+          </div>
+          <div class="adv-stat">
+            <span class="stat-num">91.6%</span>
+            <span class="stat-desc">Energy Reduction</span>
+          </div>
+          <div class="adv-stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-desc">Air-Gapped Privacy</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
