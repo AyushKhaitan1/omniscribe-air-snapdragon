@@ -123,10 +123,8 @@ omniscribe-air-snapdragon/
 └── README.md                          # Comprehensive documentation
 ```
 
----
-
-## 👨‍💻 Participant Details
-* **Name:** Ayush Khaitan
-* **Institute:** SRM Institute of Science and Technology Delhi NCR Campus
-* **Competition:** Qualcomm Snapdragon® AI Lab Build & Present Challenge (2026)
-* **Target Hardware:** HP OmniBook Ultra / HP OmniBook X (Snapdragon® X Elite)
+## 📜 License & Acknowledgments
+* Engineered for the **Qualcomm® Snapdragon® AI Lab Build & Present Challenge**.
+* Optimized for **Snapdragon® X Elite / X Plus** on **HP OmniBook** PCs.
+* Powered by the **Qualcomm Hexagon™ NPU (45 TOPS)** & **Qualcomm AI Hub**.
+* Distributed under the MIT Open Source License.
