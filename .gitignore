@@ -1,4 +1,16 @@
+# Local submission deliverables & documents (upload directly to Unstop)
+*.pdf
+*.pptx
+BRIEF_PROJECT_DESCRIPTION.md
+SUBMISSION_AND_PITCH_KIT.md
+generate_presentation.py
+export_pdf.py
+export_presentation_pdf.py
+
+# Python & Environment caches
 __pycache__/
 *.pyc
 .env
 .venv/
+.idea/
+.vscode/

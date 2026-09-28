@@ -113,9 +113,6 @@ omniscribe-air-snapdragon/
 ├── app.py                             # FastAPI local IPC server with WebSockets
 ├── omniscribe_engine.py               # Core dual-model inference & PII sanitization engine
 ├── compile_and_profile_qai_hub.py     # Qualcomm AI Hub model compilation & profiling
-├── generate_presentation.py           # Auto-generates the official 10-slide Pitch PPTX
-├── OmniScribe_Air_Pitch_Presentation.pptx # The official presentation deck ready for upload
-├── BRIEF_PROJECT_DESCRIPTION.md       # Full submission brief (PDF export ready)
 ├── benchmarks/
 │   └── snapdragon_x_profile.json      # Verified Hexagon NPU hardware telemetry metrics
 ├── static/
